@@ -4,7 +4,6 @@ Return the count of days when the employee is available for work but no meetings
 
 Note: The meetings may overlap.
 
- 
 
 Example 1:
 
