@@ -1,4 +1,3 @@
   - Data Structures
 
-
-   
+ **Arrays**
