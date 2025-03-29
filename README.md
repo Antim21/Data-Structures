@@ -1,6 +1,6 @@
   - Data Structures
 
  **Arrays**
- 
+  
 **Sorting**
   
