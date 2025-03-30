@@ -2,6 +2,6 @@
 
  **Arrays** 
   
-**Sorting**
+**Sorting** 
     
   
