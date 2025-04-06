@@ -4,7 +4,6 @@ answer[i] % answer[j] == 0, or
 answer[j] % answer[i] == 0
 If there are multiple solutions, return any of them.
 
- 
 
 Example 1:
 
