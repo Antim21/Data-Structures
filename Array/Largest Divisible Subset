@@ -23,3 +23,59 @@ Constraints:
 1 <= nums.length <= 1000
 1 <= nums[i] <= 2 * 109
 All the integers in nums are unique.
+
+
+ Solution
+
+class Solution {
+public:
+    vector<int> largestDivisibleSubset(vector<int>& nums) {
+        int n = nums.size();
+        sort(nums.begin(), nums.end()) ;
+
+        vector<int>parent(n+1, -1) ;
+        vector<vector<int>>dp(n+1, vector<int>(n+1,0)) ;
+
+        int mxLen = 0, mxIdx = 1 ;
+    
+        for(int i=1 ; i<=n ; i++)
+        {
+            for(int j=i ; j<=n ; j++)
+            {
+                int not_pick = dp[i-1][j] ;
+                int pick = 0 ;
+
+                if(i < j && nums[j-1]%nums[i-1] == 0)
+                {
+                    pick = 1 + dp[i-1][i] ;
+
+                    if(pick > not_pick) 
+                    {
+                        parent[j] = i ;
+
+                        if(mxLen < pick)
+                        {
+                            mxLen = pick ;
+                            mxIdx = j ;
+                        }
+                    }
+                }
+
+                dp[i][j] = max(pick, not_pick) ;
+            }
+        }
+
+        vector<int>ans(mxLen+1) ;
+
+        ans[mxLen--] = nums[mxIdx-1] ;
+        mxIdx = parent[mxIdx] ;
+        
+        while(mxIdx != -1)
+        {
+            ans[mxLen--] = nums[mxIdx-1] ;
+            mxIdx = parent[mxIdx] ;
+        }
+
+        return ans ;
+    }
+};
