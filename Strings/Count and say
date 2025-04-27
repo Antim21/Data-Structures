@@ -8,7 +8,7 @@ Given a positive integer n, return the nth element of the count-and-say sequence
    
  
 Example 1:  
-
+  
 Input: n = 4
 
 Output: "1211"
